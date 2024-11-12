@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "ghwfauditor"
+version = "2.0.0"
+description = "Workflow auditing tools to identify security issues in GitHub workflows."
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+PyYAML = "^6.0.2"
+httpx = "^0.27.2"
+loguru = "^0.7.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+ghwfauditor = "ghwfauditor.console:run"
+
+[project]
+license = {file = "LICENSE.md"}
