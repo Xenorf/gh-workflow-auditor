@@ -39,12 +39,20 @@ def repo_analysis(vuln_analyzer, repo_workflows, action_file):
 
 def set_log_level(level):
     """Set the log level to display to the user."""
+    LOG_FORMAT = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <level>{message}</level>"
     logger.remove()  # Remove any default handlers
-    logger.add(sys.stderr, level=level.upper())
-    logger.add("scan.log", level=level.upper())
+    logger.add(sys.stderr, format=LOG_FORMAT, level=level.upper())
+    logger.add(
+            "scan.log",
+            rotation="10 MB",
+            retention="30 days", 
+            level=level.upper(),
+            format=LOG_FORMAT,
+        )
     logger.debug("Logger initialized")
 
 
+@logger.catch
 def run() -> None:
     parser = argparse.ArgumentParser(
         prog="ghwfauditor",
@@ -61,8 +69,8 @@ def run() -> None:
     parser.add_argument(
         "--token",
         type=str,
-        default=os.environ.get("GITHUB_PAT", None),
-        help="GitHub token. Can be provided with environment variable GITHUB_PAT.",
+        default=os.environ.get("GITHUB_TOKEN", None),
+        help="GitHub token. Can be provided with environment variable GITHUB_TOKEN.",
     )
     parser.add_argument(
         "--log-level",
