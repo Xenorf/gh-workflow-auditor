@@ -22,7 +22,7 @@ positional arguments:
 options:
   -h, --help            show this help message and exit.
   --endpoint ENDPOINT   GitHub endpoint to use.
-  --token TOKEN         GitHub token. Can be provided with environment variable GITHUB_PAT.
+  --token TOKEN         GitHub token. Can be provided with environment variable GITHUB_TOKEN.
   --log-level {debug,info,warning,error,critical}
                         Level of debug you wish to display.
   --type {repo,org,user}
@@ -49,7 +49,7 @@ pip install 'ghwfauditor@git+https://github.com/TinderSec/gh-workflow-auditor.gi
 ```
 
 
-GitHub Workflow Auditor uses GitHub's GraphQL endoint. Due to this, an API token is required. The program will read it from the `--token` argument or in the `GITHUB_PAT` environment variable. You can [generate a basic Personal Access Token](https://github.com/settings/tokens/new) without any scope. Note that you may have to "Configure SSO" for the token to be usable on some organizations.
+GitHub Workflow Auditor uses GitHub's GraphQL endoint. Due to this, an API token is required. The program will read it from the `--token` argument or in the `GITHUB_TOKEN` environment variable. You can [generate a basic Personal Access Token](https://github.com/settings/tokens/new) without any scope. Note that you may have to "Configure SSO" for the token to be usable on some organizations.
 
 ```
 export GITHUB_TOKEN=ghp_YOUR_TOKEN
