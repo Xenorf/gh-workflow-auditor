@@ -104,7 +104,7 @@ def run() -> None:
 
     if auth_token is None:
         logger.error(
-            "No GitHub token provided with --token or the GITHUB_PAT env variable. Exiting."
+            "No GitHub token provided with --token or the GITHUB_TOKEN environment variable. Exiting."
         )
         sys.exit()
 
