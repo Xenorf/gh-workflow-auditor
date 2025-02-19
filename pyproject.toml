@@ -1,22 +1,25 @@
-[tool.poetry]
+[project]
 name = "ghwfauditor"
 version = "2.0.0"
 description = "Workflow auditing tools to identify security issues in GitHub workflows."
-authors = ["Your Name <you@example.com>"]
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+license = {file = "LICENSE.md"}
 readme = "README.md"
+requires-python = ">=3.9,<4.0"
+dependencies = [
+    "loguru (>=0.7.3,<0.8.0)",
+    "PyYAML>=6.0.2",
+    "httpx>=0.27.2"
+]
 
-[tool.poetry.dependencies]
-python = ">=3.9"
-PyYAML = "^6.0.2"
-httpx = "^0.27.2"
-loguru = "^0.7.2"
+[project.urls]
+repository = "https://github.com/TinderSec/gh-workflow-auditor.git"
+
+[project.scripts]
+ghwfauditor = 'ghwfauditor.console:run'
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-ghwfauditor = "ghwfauditor.console:run"
-
-[project]
-license = {file = "LICENSE.md"}
