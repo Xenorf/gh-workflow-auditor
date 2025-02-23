@@ -145,7 +145,7 @@ class WorkflowAuditor:
         YAML content to identify security issues. It does so by
         parsing YAML to JSON and identifying keys such as event triggers,
         jobs and steps. It then checks the identified key-value pairs
-        against known risks through WorkflowParser and WorkflowVulnAudit.
+        against known risks through WorkflowParser.
 
         Arguments:
             content - YAML content read from the workflow files.

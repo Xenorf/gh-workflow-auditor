@@ -55,12 +55,9 @@ class GHWrapper:
         except:
             self.logger.error(f"Connection issue with the GitHub instance")
             sys.exit()
-        valid_status = True
         # Can be 403 if the account is suspended, 401 if the credentials are incorrect
         self.logger.debug(f"{url} reponse status code is {validation_req.status_code}")
-        if validation_req.status_code != 200:
-            valid_status = False
-        return valid_status
+        return validation_req.status_code == 200
 
     def call_graphql(self, query):
         headers = {
