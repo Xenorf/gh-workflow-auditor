@@ -136,7 +136,7 @@ class GHWrapper:
                         "repositories"
                     ]["pageInfo"]["endCursor"]
                     if has_more:
-                        self.logger.info("Retrieving next batch of 100 repos.")
+                        self.logger.info("Retrieving next batch of 25 repos.")
                 else:
                     self.logger.error(f"GraphQL response had error.")
                     sys.exit(1)
