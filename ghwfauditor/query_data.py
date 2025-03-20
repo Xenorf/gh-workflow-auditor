@@ -23,7 +23,7 @@ def return_query(query_type, name, after=None):
         after_query = f',after:"{after}"' if after else ""
         return f"""query {{
         {query_type}(login:"{name}"){{
-            repositories(first:100 {after_query}){{
+            repositories(first:25 {after_query}){{
             edges{{
                 node{{
                 nameWithOwner,
